@@ -11,8 +11,8 @@ use Mean;
 use Getopt::Long;
 use Data::Dumper;
 
-my $tries = 10;
-my $duration = 1;
+my $tries = 2;
+my $duration = 5;
 my $range = 200000;
 my $threads = '1,2';
 my %options = (
@@ -34,7 +34,7 @@ my $help;
 my $usage = "qht.pl --out=outfile [options]\n" .
     " --out: path to output file with all the data in gnuplot format. Mandatory.\n" .
     "Options:\n" .
-    " --duration: duration, in seconds\n" .
+    " --duration: duration, in seconds. Default: $duration\n" .
     " --range: key range. Default: $range\n" .
     " --threads: comma-separated numbers of threads. Default: $threads\n" .
     " --tries: number of tries per test. Default: $tries\n" .

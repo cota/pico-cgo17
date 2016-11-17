@@ -10,7 +10,7 @@ my $spec_path = 'spec06-aarch64';
 my $config = 'aarch64';
 
 my $tries = 1;
-my $tool = '/usr/bin/time';
+my $tool = 'bin/aarch64-baseline';
 my $size = 'test';
 my $bench = 'perlbench';
 my $help;

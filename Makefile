@@ -73,7 +73,9 @@ test_all:
 .PHONY: test_all
 
 clean:
-	$(RM) bin/x86_64-* power-*
+	$(RM) bin/x86_64-*
+	$(RM) bin/power-*
+	$(RM) bin/aarch64-*
 .PHONY: clean
 
 distclean: clean

@@ -1,0 +1,13 @@
+*.dat
+
+/bin/x86_64-*
+/bin/aarch64-*
+/bin/power-*
+/ck
+/cputopology-perl
+/parsec-full
+/img
+/qemu
+/runspec-simple
+/spec06
+/spec06-aarch64

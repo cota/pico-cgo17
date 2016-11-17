@@ -45,6 +45,7 @@ my $bind_path = $ENV{'BIND_PATH'} ? $ENV{'BIND_PATH'} : 'cputopology-perl/list.p
 
 my $results;
 
+sys("cd $qemu_path && ./configure --target-list=arm-softmmu --disable-werror >/dev/null");
 foreach my $tag (@tags) {
     sys("cd $qemu_path && git checkout -- .");
     sys("cd $qemu_path && git checkout $tag");
@@ -72,6 +73,7 @@ foreach my $tag (@tags) {
 	$results->{$tag}->{$bits}->{stddev} = Mean::stdev(\@res);
     }
 }
+sys("make -j 6 -C $qemu_path distclean >/dev/null");
 
 sub sys {
     my $cmd = shift(@_);

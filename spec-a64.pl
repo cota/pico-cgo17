@@ -15,7 +15,7 @@ my $size = 'test';
 my $bench = 'perlbench';
 my $help;
 
-my $usage = "spec.pl [options]\n" .
+my $usage = "spec-a64.pl [options]\n" .
     "Options:\n" .
     " --bench  SPEC benchmark to run. Default: $bench.\n" .
     "          Special names: int, fp, all.\n" .

@@ -52,8 +52,8 @@ if (! -e $tool) {
     die "$tool does not exist";
 }
 
-my $parsec_path = '../parsec-full';
-my $bind_path = '../cputopology-perl/list.pl';
+my $parsec_path = 'parsec-full';
+my $bind_path = 'cputopology-perl/list.pl';
 
 foreach my $th (@threads) {
     my @res = ();

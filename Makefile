@@ -2,7 +2,7 @@ SHELL = /bin/bash
 QEMU := qemu
 CK := ck
 
-CONFIG_X86 := ./configure --target-list=x86_64-softmmu,x86_64-linux-user --disable-werror
+CONFIG_X86 := ./configure --target-list=x86_64-linux-user --disable-werror
 CONFIG_A64 := ./configure --target-list=aarch64-linux-user --disable-werror
 CONFIG_A64_TSX := ./configure --target-list=aarch64-linux-user --disable-werror --extra-cflags="-mrtm"
 

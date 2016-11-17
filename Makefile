@@ -23,7 +23,7 @@ $(CK)/Makefile:
 	cd $(CK) && ./configure
 
 rep6: deps
-	cd $(QEMU) && git checkout fig6 && $(CONFIG_X86) && $(MAKE) tests/test-qht-par && $(MAKE) distclean
+	cd $(QEMU) && git checkout fig6 && $(CONFIG_X86) && $(MAKE) tests/test-qht-par && cp tests/test-qht-par ../bin/x86_64-test-qht-par && $(MAKE) distclean
 .PHONY: rep6
 
 # Note: cannot have several builds in parallel

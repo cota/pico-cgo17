@@ -4,6 +4,7 @@ CK := ck
 
 CONFIG_X86 := ./configure --target-list=x86_64-softmmu,x86_64-linux-user --disable-werror
 CONFIG_A64 := ./configure --target-list=aarch64-linux-user --disable-werror
+CONFIG_A64_TSX := ./configure --target-list=aarch64-linux-user --disable-werror --extra-cflags="-mrtm"
 
 test: deps
 	$(MAKE) -C $(QEMU)
@@ -56,8 +57,8 @@ st: deps
 	done && $(MAKE) distclean
 .PHONY: deps
 
-tsx:
-	cd $(QEMU) && git checkout aarch64-pico-htm && $(CONFIG_A64) && \
+tsx: st
+	cd $(QEMU) && git checkout aarch64-pico-htm && $(CONFIG_A64_TSX) && \
 	$(MAKE) && \
 	cp aarch64-linux-user/qemu-aarch64 ../bin/aarch64-pico-htm && \
 	$(MAKE) distclean

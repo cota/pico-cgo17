@@ -76,7 +76,7 @@ foreach my $test (@tests) {
 	    my $flags = "-d $duration -n $n -u $u -k $range -K $range -l $range -r $range -s $range $options{$test}->{flag}";
 	    my $bind = `$bind_path --policy=compact $n`;
 	    chomp($bind);
-	    my $cmd = "taskset -c $bind $qemu_path/tests/test-qht-par $flags";
+	    my $cmd = "taskset -c $bind bin/x86_64-test-qht-par $flags";
 	    print "$cmd\n";
 	    my $fh;
 	    my $pid = open($fh, "$cmd 2>&1 | ") or die "cannot open: $?";

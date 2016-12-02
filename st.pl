@@ -53,7 +53,7 @@ if (! -e $tool) {
     die "$tool does not exist";
 }
 
-my $bind_path = '../cputopology-perl/list.pl';
+my $bind_path = 'cputopology-perl/list.pl';
 
 foreach my $th (@threads) {
     my @res = ();

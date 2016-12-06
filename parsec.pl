@@ -29,7 +29,7 @@ my $usage = "parsec.pl [options]\n" .
     "Note: results are printed to standard error; PARSEC messages are printed to standard output.\n";
 
 GetOptions (
-    'benchmark' => \$test,
+    'benchmark=s' => \$test,
     'h|help' => \$help,
     'size=s' => \$size,
     'threads=s' => \$threads,

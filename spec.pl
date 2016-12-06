@@ -15,13 +15,20 @@ my $size = 'test';
 my $bench = 'perlbench';
 my $help;
 
-my $usage = "spec.pl [options]\n" .
+my $name = 'spec.pl';
+my $usage = "$name [options]\n" .
     "Options:\n" .
     " --bench  SPEC benchmark to run. Default: $bench.\n" .
     "          Special names: int, fp, all.\n" .
     " --size:  test, train, ref. Default: $size\n" .
     " --tool:  binary to run the SPEC executables with. Default: $tool\n" .
-    " --tries: number of tries per executable. Default: $tries\n";
+    " --tries: number of tries per executable. Default: $tries\n" .
+    "\n" .
+    "Example:\n" .
+    "./$name --bench=gcc --size=test --tool=$tool --tries=2 1>spec-out.dat\n" .
+    "    Runs SPEC's gcc benchmark with the test input size under the\n" .
+    "    $tool tool (i.e. running natively). Results are averaged from 2 runs.\n" .
+    "    Results are saved to spec-out.dat in gnuplot format.\n";
 
 GetOptions (
     'bench=s' => \$bench,

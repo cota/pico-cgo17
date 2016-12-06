@@ -19,14 +19,22 @@ my $tool = '/usr/bin/time';
 my $test = 'blackscholes';
 my $threads = '4,8';
 
-my $usage = "parsec.pl [options]\n" .
+my $name = 'parsec.pl';
+my $usage = "$name [options]\n" .
     "Options:\n" .
     " --benchmark: name of the PARSEC benchmark to run. Default: $test\n" .
     " --size:  test, simdev, simsmall, simmedium, simlarge, native. Default: $size\n" .
     " --tool: binary to run the workload with. Default: $tool\n" .
     " --threads: comma-separated numbers of threads. Default: $threads\n" .
     " --tries: number of tries per test. Default: $tries\n" .
-    "Note: results are printed to standard error; PARSEC messages are printed to standard output.\n";
+    "Note: results are printed to standard error; PARSEC messages are printed to standard output.\n" .
+    "\n" .
+    "Example:\n" .
+    "./$name --benchmark=blackscholes --size=simsmall --tool=$tool --threads=1,2,16 --tries=3 2>parsec-out.dat\n" .
+    "    Runs the blackscholes benchmark with the small input, using the\n" .
+    "    $tool tool (i.e. running natively) for 1,2 and 16 threads.\n" .
+    "    Results are averaged from 3 runs, and are saved to parsec-out.dat\n" .
+    "    in gnuplot format.\n";
 
 GetOptions (
     'benchmark=s' => \$test,

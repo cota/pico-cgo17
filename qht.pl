@@ -31,14 +31,22 @@ my $out;
 my $u = 0;
 my $help;
 
-my $usage = "qht.pl --out=outfile [options]\n" .
+my $name = 'qht.pl';
+my $usage = "$name --out=outfile [options]\n" .
     " --out: path to output file with all the data in gnuplot format. Mandatory.\n" .
     "Options:\n" .
     " --duration: duration, in seconds. Default: $duration\n" .
     " --range: key range. Default: $range\n" .
     " --threads: comma-separated numbers of threads. Default: $threads\n" .
     " --tries: number of tries per test. Default: $tries\n" .
-    " --update_rate: update rate for all tests. Default: $u\n";
+    " --update_rate: update rate for all tests. Default: $u\n" .
+    "\n" .
+    "Example:\n" .
+    "./$name --out=qht-out.dat --duration=10 --range=100000 --threads=1,32,64 --tries=4 --update_rate=1.5\n" .
+    "    Runs the hash table benchmark (QHT, CLHT and ck_hs implementations)\n" .
+    "    for 10 seconds, on a key range of 100000 elements, with an update rate of 1.5%,\n" .
+    "    for 1, 32 and 64 threads. Results are averaged from 4 runs.\n" .
+    "    Results are saved in gnuplot format to qht-out.dat.\n";
 
 GetOptions (
     'duration=i' => \$duration,

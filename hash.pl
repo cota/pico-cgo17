@@ -18,11 +18,18 @@ my $tries = 2;
 my $out;
 my $help;
 
-my $usage = "hash.pl --out=outfile [options]\n" .
+my $name = "hash.pl";
+my $usage = "$name --out=outfile [options]\n" .
     " --out: path to output file with all the data in gnuplot format. Mandatory.\n" .
     "Options:\n" .
     " --bits: comma-separated numbers of bits (log2 number of initial buckets) to test. Default: $bits\n" .
-    " --tries: number of tries per test. Default: $tries\n";
+    " --tries: number of tries per test. Default: $tries\n" .
+    "\n" .
+    "Example:\n" .
+    "./$name --out=hash-out.dat --bits=13,14,15 --tries=2\n" .
+    "    Runs the ARM bootup+shutdown test for configurations with different\n" .
+    "    initial numbers of buckets for the translation block cache: 2**13, 2**14 and 2**15.\n" .
+    "    Results are averaged from 2 runs. Results are saved to hash-out.dat in gnuplot format.\n";
 
 GetOptions (
     'bits=s' => \$bits,

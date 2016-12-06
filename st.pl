@@ -20,14 +20,21 @@ my $threads = '4,8';
 my $duration = 4;
 my $range = 64;
 
-my $usage = "st.pl [options]\n" .
+my $name = 'st.pl';
+my $usage = "$name [options]\n" .
     "Options:\n" .
     " --duration: duration in seconds. Default: $duration\n" .
     " --range: range of elements (will be rounded up to a power of two). Default: $range\n" .
     " --threads: comma-separated numbers of threads. Default: $threads\n" .
     " --tool: binary to run the workload with. Default: $tool\n" .
     " --tries: number of tries per test. Default: $tries\n" .
-   "Note: results are printed to standard error; atomic_add messages are printed to standard output.\n";
+    "Note: results are printed to standard error; atomic_add messages are printed to standard output.\n" .
+    "\n" .
+    "Example:\n" .
+    "./$name --duration=5 --range=8 --tool=$tool --tries=2 --threads=1,8,16 2>st-out.dat\n" .
+    "    Runs the Aarch64 atomic_add benchmark with 8 elements for 1,8 and 16 threads. Each run takes\n" .
+    "    5 seconds, and results are averaged from 2 runs. The emulator binary used\n" .
+    "    is $tool. Results are saved to st-out.dat in gnuplot format.\n";
 
 GetOptions (
     'duration=i' => \$duration,
